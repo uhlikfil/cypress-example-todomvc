@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: my_workflow
 on: [push]
 jobs:
   first_job:
