@@ -1,0 +1,18 @@
+name: End-to-end tests
+on: [push]
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step
+        run: echo "first step in the first job"
+      - name: Second step
+        run: echo "hidden in file" > file.txt
+      - name: Third step
+        run: cat file.txt
+  second_job:
+    needs: first_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read from last job
+        run: cat file.txt
